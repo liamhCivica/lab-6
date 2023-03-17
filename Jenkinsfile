@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh "docker run -d -p 3306:3306 --name mysql app-db"
                 sh "docker run -d -p 5000:5000 --name mysql app"
-                sh "docker run -d -p 80:80 --name mysql app"
+                sh "docker run -d -p 80:80 --name nginx nginx"
             }
         }
     }

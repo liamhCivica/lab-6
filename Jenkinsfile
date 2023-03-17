@@ -23,5 +23,13 @@ pipeline {
                 sh "docker run -d -p 80:80 --name nginx nginx"
             }
         }
+        stage('Push') {
+            steps {
+                sh "docker tag app-db liamhillsaffron/app-db"
+                sh "docker push liamhillsaffron/app-db"
+                sh "docker tag app liamhillsaffron/app"
+                sh "docker push liamhillsaffron/app"
+            }
+        }
     }
 }

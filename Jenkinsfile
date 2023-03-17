@@ -24,7 +24,7 @@ pipeline {
                 sh "docker volume create mysql"
                 sh "docker run -d -p 3306:3306 --network new-network --name mysql -v mysql:/var/lib/mysql app-db app-db"
                 sh "docker run -d -p 5000:5000 --network new-network --name mysql app"
-                sh "docker run -d -p 80:80 --network new-network --name nginx --mount type=bind,source=\"$(pwd)\"/nginx,target=/etc/nginx nginx"
+                sh "docker run -d -p 80:80 --network new-network --name nginx --mount type=bind,source=\"\$(pwd)\"/nginx,target=/etc/nginx nginx"
             }
         }
         stage('Push') {

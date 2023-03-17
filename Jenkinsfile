@@ -7,8 +7,8 @@ pipeline {
                 docker stop app-db || true && docker rm app-db || true
                 docker stop app || true && docker rm app || true
                 docker stop nginx || true && docker rm nginx || true
-                docker network rm new-network
-                docker volume rm mysql
+                docker network rm new-network || true
+                docker volume rm mysql || true
                 '''
             }
         }
